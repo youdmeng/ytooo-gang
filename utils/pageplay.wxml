@@ -1,0 +1,18 @@
+<template name="pp">
+	<view id="pageplay" wx:if="{{music.id}}">
+		<view id="pp_pic" bindtap="toggleplay">
+			<image  src="../../../image/pause.png" wx:if="{{playing}}" />
+			<image id='pa-pause' src="../../../image/ajf.png" id="pp_playing" wx:if="{{!playing}}" />
+		</view>
+		<view id='pp_name'>
+			
+				<view>{{music.name||'暂无播放'}}</view>
+			
+		</view>
+		<view id='pp_action'>
+			<view class="pa-baction" bindtap="playnext" data-pt="1">
+				<image src="../../../image/ajb.png" id="pp_next" style="width:60rpx;height:60rpx;" />
+			</view>
+		</view>
+	</view>
+</template>

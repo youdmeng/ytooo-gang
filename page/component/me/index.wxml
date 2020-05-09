@@ -1,0 +1,28 @@
+<import src="../../../utils/pl.wxml" />
+<import src="../../../utils/image.wxml" />
+<view>
+  <view class="menu">
+   
+    <navigator url="../record/index?uid={{uid}}" class="mn_list">
+      <view class="mn_ico">
+      <template is="image" data="{{src:'../../../image/cm2_list_icn_recent_new@2x.png',width:60}}"/></view>
+      <view class="cmain">最近播放</view>
+      <view class="rdes">
+        <view class="arrow"></view>
+      </view>
+    </navigator>
+  </view>
+  <view class="playlist" wx:if="{{!loading}}">
+    <view class="sm_title">我创建的歌单 <text>({{subcount.createdPlaylistCount}})</text>
+    </view>
+    <template is="pl" data="{{list:list1}}" />
+    
+  </view>
+  <view wx:else class="cntloading">加载中...
+    <view>
+      <text class="cl1"></text>
+      <text class="cl2"></text>
+      <text class="cl3"></text>
+    </view>
+  </view>
+</view>

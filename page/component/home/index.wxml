@@ -1,0 +1,22 @@
+<import src="../../../utils/loading.wxml" />
+<import src="../../../utils/image.wxml" />
+<import src="../../../utils/pageplay.wxml"/>
+<template is="pp" data="{{music:music,playing:playing,playtype:playtype}}"/>
+<view id="main" class="page_pp">
+  <!--歌单 -->
+  <view class="tab_cnt">
+    <block wx:if= "{{playlist.loading}}">
+      <view class='flex-boxlist flex-two'>
+        <view class="tl_cnt cateplaylist" wx:for-items="{{playlist.list.playlists}}" wx:key="id" >
+          <navigator url="../playlist/index?pid={{item.id}}&img={{item.coverImgUrl}}&name={{item.name}}&description={{item.description}}">
+            <view class="cover">
+              <image src="{{item.coverImgUrl}}" class="music_cover" />
+            </view>
+            <text class="name">{{item.name}}</text>
+          </navigator>
+        </view>
+      </view>
+    </block>
+    <template wx:if="{{!playlist.loading||playlist.list.more}}" is="loading" />
+  </view>
+</view>
